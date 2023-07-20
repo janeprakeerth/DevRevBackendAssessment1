@@ -44,6 +44,7 @@ exports.bookFlight = async(req,res)=>{
 
 exports.getUserBookings = async(req,res)=>{
     try{
+        console.log(req.params.id)
         const bookings = await bookingSchema.find({UserId:req.params.id});
         console.log(bookings)
         res.status(200).send({
