@@ -105,11 +105,13 @@ exports.restrictTo = (...roles)=>{
         try{
             // roles is an array i.e ['admin','lead-guide']
             if(!roles.includes(req.user.role)){
+                console.log("no permission to access this route")
                 return res.status(404).json({
                     "message":"You Dont have permission to access this route"
                 })
             }
         }catch(err){
+            console.log(err.message)
             return res.status(404).json({
                 "message":err
             })
