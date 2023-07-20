@@ -68,6 +68,7 @@ exports.getflights = async(req,res)=>{
 }
 exports.getflightsByDate = async(req,res)=>{
     try{
+        console.log(req.body.startDate)
         darr = req.body.startDate.split("-");    
         var dobj1 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),0,0,0);
         var dobj2 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),23,59,59);
