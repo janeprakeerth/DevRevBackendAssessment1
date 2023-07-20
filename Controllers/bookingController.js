@@ -50,7 +50,9 @@ exports.getUserBookings = async(req,res)=>{
         const bookingsArray = [];
         for(let i=0;i<bookings.length;i++){
             const flight = await flightSchema.findById({_id:bookings[i].FlightId})
-            bookingsArray.push(flight)
+            if(flight){
+                bookingsArray.push(flight)
+            }
         }
         res.status(200).send({
             status:"Success",
