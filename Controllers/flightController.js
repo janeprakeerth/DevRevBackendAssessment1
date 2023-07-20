@@ -45,9 +45,10 @@ exports.deleteflight = async(req,res)=>{
             data:null
         }) 
     }catch(err){
+        console.log(err.message)
         res.status(404).send({
             status:"Error in deletion of flight",
-            error:err
+            error:err.message
         })
     }
 }
