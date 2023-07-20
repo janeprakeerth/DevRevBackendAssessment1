@@ -75,7 +75,7 @@ exports.getflightsByDate = async(req,res)=>{
             "flightOrigin":req.body.flightOrigin,
             "flightDestination":req.body.flightDestination,
             "flightStartTimestamp":{
-                $gte:dobj1,
+                // $gte:dobj1,
                 $lte:dobj2
             }
     })
