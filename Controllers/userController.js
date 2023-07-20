@@ -68,6 +68,7 @@ exports.protect = async(req,res,next)=>{
         if(req.headers.authorization){
             // getting the token
             token =  req.headers.authorization
+            console.log(typeof(token))
             console.log(token)
             // verifying the token
             const decoded = await jwt.verify(token,process.env.JWT_SECRET)
