@@ -30,6 +30,7 @@ exports.login = async(req,res)=>{
         const email = req.body.email
         console.log(email)
         const pass = req.body.password
+        console.log(pass)
     if(!email ||!pass){
         return res.status(400).json({
             message:"Please send username ans password to the api"
