@@ -38,6 +38,7 @@ exports.login = async(req,res)=>{
     }
 
     const user = await User.findOne({email})
+    console.log(user)
     const isValidPass = await bcrypt.compare(pass,user.password)
 
     if(isValidPass){

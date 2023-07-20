@@ -72,6 +72,8 @@ exports.getflightsByDate = async(req,res)=>{
         var dobj1 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),0,0,0);
         var dobj2 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),23,59,59);
         const result = await flightSchema.find({
+            "flightOrigin":req.body.flightOrigin,
+            "flightDestination":req.body.flightDestination,
             "flightStartTimestamp":{
                 $gte:dobj1,
                 $lte:dobj2
@@ -102,6 +104,8 @@ exports.getflightsByDateAndTime = async(req,res)=>{
         var dobj1 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),parseInt(tm[0]),parseInt(tm[1]),0);
         var dobj2 = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]),parseInt(tm[0]),parseInt(tm[1]),59);
         const result = await flightSchema.find({
+            "flightOrigin":req.body.flightOrigin,
+            "flightDestination":req.body.flightDestination,
             "flightStartTimestamp":{
                 $gte:dobj1,
                 // $lte:dobj2
