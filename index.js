@@ -4,11 +4,13 @@ const mongoose = require('mongoose')
 const userRouter = require('./Routers/userRouter')
 const flightRouter  = require('./Routers/flightRouter')
 const bookingRouter  = require('./Routers/bookingRouter')
+const cors = require("cors");
 
 const dotenv  = require('dotenv')
 
 const app = express()
 app.set('trust proxy', true)
+app.use(cors());
 
 dotenv.config({path:'./config.env'})
 
