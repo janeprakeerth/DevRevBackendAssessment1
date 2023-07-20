@@ -47,9 +47,18 @@ exports.getUserBookings = async(req,res)=>{
         console.log(req.params.id)
         const bookings = await bookingSchema.find({UserId:req.params.id});
         console.log(bookings)
+        const bookingsArray = [];
+        for(let i=0;i<bookings.length;i++){
+            const flight = await flightSchema.find({_id:bookings[i].FlightId})
+            const obj = {
+                flight
+            }
+            bookingsArray.push(obj)
+        }
         res.status(200).send({
             status:"Success",
-            bookings:bookings
+            UserId:bookings[0].UserId,
+            bookings:bookingsArray
         })
     }catch(err){
         console.log(err.message)
