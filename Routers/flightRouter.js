@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 router.post('/createflight',usercontroller.protect,usercontroller.restrictTo('admin'),flightcontroller.addflight)
-router.post('/deleteflight/:id',usercontroller.protect,usercontroller.restrictTo('admin'),flightcontroller.deleteflight)
+router.get('/deleteflight/:id',usercontroller.protect,usercontroller.restrictTo('admin'),flightcontroller.deleteflight)
 router.get('/getAllflights',usercontroller.protect,flightcontroller.getflights)
 router.post('/getflightsByDate',usercontroller.protect,flightcontroller.getflightsByDate)
 router.post('/getflightsByDateAndTime',usercontroller.protect,flightcontroller.getflightsByDateAndTime)

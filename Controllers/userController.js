@@ -103,7 +103,6 @@ exports.protect = async(req,res,next)=>{
 exports.restrictTo = (...roles)=>{
     return (req,res,next)=>{
         try{
-            // roles is an array i.e ['admin','lead-guide']
             if(!roles.includes(req.user.role)){
                 console.log("no permission to access this route")
                 return res.status(404).json({
