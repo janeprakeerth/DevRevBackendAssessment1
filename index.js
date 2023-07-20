@@ -8,6 +8,7 @@ const bookingRouter  = require('./Routers/bookingRouter')
 const dotenv  = require('dotenv')
 
 const app = express()
+app.set('trust proxy', true)
 
 dotenv.config({path:'./config.env'})
 
@@ -27,7 +28,6 @@ const PORT = process.env.PORT||3000
 
 app.use(morgan('dev'))
 app.use(express.json())
-
 app.listen(PORT,()=>{
     console.log("Listening on Port 3000")
 })
