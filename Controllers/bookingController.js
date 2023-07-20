@@ -45,12 +45,13 @@ exports.bookFlight = async(req,res)=>{
 exports.getUserBookings = async(req,res)=>{
     try{
         const bookings = await bookingSchema.find({UserId:req.params.id});
-        
+        console.log(bookings)
         res.status(200).send({
             status:"Success",
             bookings:bookings
         })
     }catch(err){
+        console.log(err.message)
         res.status(404).send({
             status:"Failed",
             message:err.message
