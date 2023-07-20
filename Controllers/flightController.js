@@ -39,6 +39,7 @@ exports.addflight = async(req,res)=>{
 
 exports.deleteflight = async(req,res)=>{
     try{
+        console.log("ok:",req.params.id)
         await flightSchema.findByIdAndDelete(req.params.id)
         res.status(200).json({
             message:'Successfully deleted',
