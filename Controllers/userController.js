@@ -28,6 +28,7 @@ exports.signUp = async(req,res)=>{
 exports.login = async(req,res)=>{
     try{
         const email = req.body.email
+        console.log(email)
         const pass = req.body.password
     if(!email ||!pass){
         return res.status(400).json({
