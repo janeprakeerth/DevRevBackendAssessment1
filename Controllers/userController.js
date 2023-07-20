@@ -28,7 +28,7 @@ exports.signUp = async(req,res)=>{
 exports.login = async(req,res)=>{
     try{
         const email = req.body.email
-        console.log(email)
+        console.log(req.body)
         const pass = req.body.password
         console.log(pass)
     if(!email ||!pass){
