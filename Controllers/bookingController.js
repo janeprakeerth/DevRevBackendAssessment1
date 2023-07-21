@@ -19,6 +19,12 @@ exports.bookFlight = async(req,res)=>{
                 message:"Seats are not available"
             })
         }
+        const isflightAlreadyBooked  = await bookingSchema.find({UserId:req.body.UserId,FlightId:req.body.FlightId})
+        if(isflightAlreadyBooked){
+            res.status(404).send({
+                message:"Flight Already Booked"
+            })
+        }
         flightSeats = parseInt(flight.noofseats)-1;
         // console.log(typeof(flightSeats))
         flight.noofseats = `${flightSeats}`
