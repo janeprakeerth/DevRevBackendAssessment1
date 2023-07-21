@@ -30,9 +30,10 @@ exports.addflight = async(req,res)=>{
             flight:flight
         })
     }catch(err){
+        console.log(err.message)
         res.status(404).send({
             status:"Failed",
-            error:err
+            error:err.message
         })
     }
 }
