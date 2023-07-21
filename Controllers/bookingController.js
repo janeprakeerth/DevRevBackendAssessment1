@@ -73,3 +73,29 @@ exports.getUserBookings = async(req,res)=>{
         })
     }
 }
+
+exports.getflightbookings = async(req,res)=>{
+    try{
+        console.log(req.params.id)
+        const bookings = await bookingSchema.find({UserId:req.params.id});
+        console.log(bookings)
+        const bookingsArray = [];
+        for(let i=0;i<bookings.length;i++){
+            const user = await userSchema.findById({_id:bookings[i].FlightId})
+            if(user){
+                bookingsArray.push(user)
+            }
+        }
+        res.status(200).send({
+            status:"Success",
+            UserId:bookings[0].FlightId,
+            bookings:bookingsArray
+        })
+    }catch(err){
+        console.log(err.message)
+        res.status(404).send({
+            status:"Failed",
+            message:err.message
+        })
+    }
+}
