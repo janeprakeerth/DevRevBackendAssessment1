@@ -22,6 +22,7 @@ function convertToISODateTime(dateString, timeString) {
   }
 exports.addflight = async(req,res)=>{
     try{
+        console.log(req.body)
         req.body.flightStartTimestamp = new Date(convertToISODateTime(req.body.flightStartDate,req.body.flightStartTime));
         req.body.flightEndTimestamp = new Date(convertToISODateTime(req.body.flightEndDate,req.body.flightEndTime));
         const flight = await flightSchema.create(req.body)
