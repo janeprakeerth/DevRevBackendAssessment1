@@ -77,11 +77,11 @@ exports.getUserBookings = async(req,res)=>{
 exports.getflightbookings = async(req,res)=>{
     try{
         console.log(req.params.id)
-        const bookings = await bookingSchema.find({UserId:req.params.id});
+        const bookings = await bookingSchema.find({FlightId:req.params.id});
         console.log(bookings)
         const bookingsArray = [];
         for(let i=0;i<bookings.length;i++){
-            const user = await userSchema.findById({_id:bookings[i].FlightId})
+            const user = await userSchema.findById({_id:bookings[i].UserId})
             if(user){
                 bookingsArray.push(user)
             }

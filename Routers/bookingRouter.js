@@ -10,5 +10,5 @@ app.use(express.json())
 
 router.post('/bookflight',usercontroller.protect,bookingcontroller.bookFlight)
 router.get('/getbookings/:id',usercontroller.protect,bookingcontroller.getUserBookings)
-router.get('/getflightbookings/:id',usercontroller.protect,)
+router.get('/getflightbookings/:id',usercontroller.protect,bookingcontroller.getflightbookings)
 module.exports = router
